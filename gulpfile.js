@@ -20,7 +20,7 @@ gulp.task('html', function(){
 //Работа с css
 gulp.task('css', function(){
 	gulp.src('./app/css/*.css')
-	pipe(connect.reload());
+	.pipe(connect.reload());
 });
 //Работа с js
 gulp.task('js', function(){
@@ -31,6 +31,7 @@ gulp.task('js', function(){
 gulp.task('watch', function(){
 	gulp.watch(['./app/*.html'], ['html']);
 	gulp.watch(['./app/css/*.css'], ['css']);
+	gulp.watch(['./app/fonts/fira/*.css'], ['css']);/*!*/
 	gulp.watch(['./app/js/*.js'], ['js']);
 });
 //Задача по-умолчанию

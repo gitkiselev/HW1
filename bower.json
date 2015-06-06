@@ -1,0 +1,6 @@
+{
+  "name": "HW1",
+  "dependencies": {
+    "jquery": "1.11.3"
+  }
+}

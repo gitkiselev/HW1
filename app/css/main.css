@@ -1,0 +1,500 @@
+/* прибьём футер к низу*/
+html, body {
+	height: 100%;
+}
+.wrapper{
+	position: relative;
+	min-height: 100%;
+	height: auto!important;
+	overflow: hidden;
+}
+.wrapper:after {
+	content: "";
+	height: 75px;
+	display: block;
+}
+.page-footer{
+	height: 75px;
+	margin-top: -75px;	
+}
+/* прибьём футер к низу - конец*/
+
+
+
+
+body {
+	font-family: fira_sansbook;
+	background-image: url(../img/comppattern2.png);
+	/*background-attachment: fixed;*/
+}
+.wrapper {
+	margin: 0 auto;
+	
+}
+
+.page-header {
+	margin: 0 auto;
+	margin-bottom: 39px;
+	background-color: #EFF3F7;
+	
+}
+.page-wrapper {
+	width: 1218px;
+	margin: 0 auto;
+}
+.logo {
+	float: left;
+	margin-top: 39px;
+	margin-left: 16px;
+	margin-bottom: 27px;
+}
+.social {
+	float: right;
+	margin-top: 35px;
+	margin-left: 3px;
+	
+}
+.social-list {
+	float: left;
+	padding:0;
+	
+}
+
+.clearfix:before,
+.clearfix:after {
+	content: '';
+	display: table;
+}
+.clearfix:after {
+	clear: both;
+}
+.page-header:after {
+	content: "";
+	display: block;
+	height: 3px;
+	background-image: url(../img/line.png);
+}
+.page-wrapper {
+	
+}
+.social {
+	
+}
+.social-list {
+	margin: 0;
+	padding: 0;
+}
+.social-item {
+	float: left;
+	list-style-type: none;
+	margin-left: 24px;
+}
+.social-item:first-child {
+	margin-left: 0;
+}
+.social-btn {
+	float: left;
+	text-indent: -9999px;
+	
+	background-image: url(../img/spritesheet.png);
+	background-repeat: no-repeat;
+	width: 47px;
+	height: 47px;
+}
+.btn-vk {
+	background-position: -62px -119px;
+}
+.btn-vk:hover {
+	background-position: -119px -119px;
+}
+.btn-twitter {
+	background-position: -119px -62px;
+}
+.btn-twitter:hover {
+	background-position: -5px -119px;
+}
+.btn-fb {
+	background-position: -51px -5px;
+}
+.btn-fb:hover {
+	background-position: -108px -5px;
+}
+.btn-git {
+	background-position: -5px -62px;
+}
+.btn-git:hover {
+	background-position: -62px -62px;
+}
+/*Оформление основного контента*/
+.container {
+	width: 970px;
+	margin: 0 auto;
+}
+.aside {
+	width: 250px;
+	float: left;
+	margin-left: 13px;
+}
+.info {
+
+	width: 650px;
+	float: right;
+	
+	padding-top: 0px;
+	
+}
+/*Навигация*/
+
+.navigation {
+	overflow: hidden;
+	background-color: #eff3f7;
+	border-radius: 4px;
+	margin-bottom: 23px;
+}
+.navigation .navigation-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	
+}
+.navigation .navigation-item {
+	
+	border-top: 2px solid #3DA7C0;
+	margin: 0 10px;
+}
+/*убираем верхнюю границу*/
+.navigation .navigation-item:first-child {
+	border-top: none;/*убираем верхний border*/
+	
+}
+/*Активная li*/
+.navigation .navigation-item.active-item {
+	background-color: #3BA8C0;
+	margin: 0 0 -2px;
+	border-bottom: none;
+	padding-left: 10px;
+	
+}
+
+.navigation .navigation-item.active-item .navigation-link {
+	color: #fff;
+}
+
+.navigation .navigation-link {
+	font-family: 'fira_sansbook';
+	display: block;
+	font-size: 22px;
+	color: #9599A8;
+	text-decoration: none;
+	padding: 22px 0 15px 0;
+	margin-left: 16px;
+}
+.navigation .navigation-link:hover {
+	color: #3da7c0;
+}
+/*Блок с контактами*/
+
+.contacts {
+	font-family: 'fira_sansbook';
+	margin-top: 27px;
+	
+}
+.contacts {
+	overflow: hidden;
+	border-radius: 4px;
+}
+.contacts-header {
+	font-size: 21px;
+	color: #fff;
+	background-color: #3DA7C0;
+	padding: 7px 21px 0;
+	border-radius: 4px 4px 0 0;
+}
+.contacts-list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border-radius: 0 0 4px 4px;
+}
+.contacts-item {
+	padding-left: 60px;
+	background: url(../img/spritesheet-cont.png) 23px no-repeat;
+
+}
+
+/*Разный цвет фона у элементов списка*/
+.contacts-mail {
+	background-color: #43b7d4;
+	background-position:  23px -9px;
+	
+	
+}
+.contacts-phone {
+	background-color: #4ac9e8;
+	background-position: 23px -66px;
+}
+.contacts-skype {
+	background-color: #53d8f8;
+	background-position: 23px -126px;
+}
+/*Общие стили для ссылок*/
+.contacts-link {
+	display: block;
+	color: #fff;
+	text-decoration: none;
+	padding: 9px 0 6px 26px;
+}
+.contacts-link:hover {
+	text-decoration: underline;
+}
+/*Блок с контактами КОНЕЦ*/
+
+/*Правая часть основного контейнера*/
+.about-header,
+.exp-header,
+.edu-header {
+	font-family: 'fira_sansbook';
+	font-size: 27px;
+	color: #3DA7C0;
+	border-bottom: 2px solid #3DA7C0;
+}
+.about {
+	padding-top: 1px;
+	padding-bottom: 41px;
+	margin-bottom: 26px;/*не будет подвергаться изменениям*/
+}
+/*Блок с текстом "Основная информация"*/
+/*Общие стили для хедеров*/
+.about-header,
+.exp-header,
+.edu-header {
+	padding: 12px 0 13px 0;
+	/*width: 345px;*/
+	text-align: center;
+	font-size: 27px;
+	border-bottom: 2px solid #3DA7C0;
+	color: #3DA7C0;
+	margin-bottom: 18px;
+}
+/*Индивидуальные стили для хедеров*/
+.about-header {
+	width: 345px;
+}
+.exp-header {
+	width: 209px;
+}
+.edu-header {
+	width: 214px;
+}
+.photo-wrapper {
+	float: left;
+	margin-top: 17px;
+	margin-left: 58px;
+}
+.about-photo {
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	overflow: hidden;
+	border: 5px solid #3ba8c0;
+}
+.about-photo .avatar {
+	width: 100%;
+}
+.wrapper-about {
+	float: right;
+	width: 418px;
+}
+.about-list {
+	font-family: 'fira_sansbook';
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+.about-item {
+	margin-bottom: 6px;
+}
+.about-title, .about-info {
+	display: inline-block;
+}
+.about-title {
+	font-weight: bold;
+	font-size: 17px;
+	color: #4A545D;
+}
+.about-info {
+	font-size: 15px;
+	color: #38424D;
+	margin-left: 14px;
+	
+}
+.skills-list {
+	padding: 0;
+	width: 192px;
+}
+.skills-item {
+	font-family: 'ProximaNovaCondensed Semibold';
+	display: inline-block;
+	background: linear-gradient(to bottom, #3ba8c0 0, #3ba8c0 52%, #2e8ca2 53%, #2e8ca2 100%);
+	border-radius: 4px;
+	padding: 0 7px;
+	margin-left: 6px;
+	color: #fff;
+	text-align: center;
+	
+}
+.about,
+.exp,
+.edu {
+	background-color: #EFF3F7;
+}
+.about-skills-title {
+	float: left;
+}
+.about-info-list {
+	float: left;
+	width: 192px;
+	margin-left: 16px;
+	padding-left: 0;
+	margin-top: 7px;
+	min-width: 218px;
+	
+}
+.skills-item {
+	margin-bottom: 6px;
+	padding: 1px 12px;
+}
+/*Список "Опыт работы"*/
+.exp-list,
+.edu-list {
+	margin: 0;
+	padding: 0;
+	padding-left: 35px;
+	list-style-type: none;
+	position: relative;
+	
+}
+.exp {
+	margin-bottom: 26px;
+	padding-bottom: 29px;
+}
+.exp-title {
+	padding-left: 26px;
+	margin-bottom: 7px;
+}
+/*Переопределяем pading слева из-за разной ширины иконок*/
+.edu-title1 {
+	padding-left: 23px;
+	margin-bottom: 12px;
+}
+.edu-title2 {
+	padding-left: 31px;
+	margin-bottom: 10px;
+}
+.exp-title:before
+ {
+	content: '';
+	background: url(../img/exp-edu-spritesheet.png);
+	background-repeat: no-repeat;
+	display: block;
+	position: absolute;
+	width: 36px;
+	height: 34px;
+	background-position: 0 0;
+	margin-right: 30px;
+	margin-top: 8px;
+}
+.edu-title1:before {
+	content: '';
+	background: url(../img/exp-edu-spritesheet.png);
+	background-repeat: no-repeat;
+	display: block;
+	position: absolute;
+	width: 41px;
+	height: 23px;
+	background-position: 0 -34px;
+	margin-right: 30px;
+	margin-top: 10px;
+}
+.edu-title2:before {
+	content: '';
+	background: url(../img/exp-edu-spritesheet.png);
+	background-repeat: no-repeat;
+	display: block;
+	position: absolute;
+	width: 26px;
+	height: 32px;
+	background-position: 0 -57px;
+	margin-right: 30px;
+	margin-top: 6px;
+}
+.exp-wrapper {
+	margin-left: 65px;
+}
+.exp-name {
+	font-family: 'fira_sansbook';
+	font-size: 17px;
+}
+.exp-info {
+	font-family: 'fira_sanslight';
+	font-size: 15px;
+}
+/*Блок "Образование"*/
+
+.edu-wrapper1 {
+	margin-left: 69px;
+}
+.edu-wrapper2 {
+	margin-left: 61px;
+}
+.edu-name {
+	font-family: 'fira_sansbook';
+	font-size: 17px;
+}
+.edu-info {
+	font-family: 'fira_sanslight';
+	font-size: 15px;
+}
+.edu {
+	padding-bottom: 22px;
+	margin-bottom: 39px;
+}
+/*Блок "page-footer"*/
+.page-footer {
+	background-color: #EFF3F7;
+}
+.page-footer:before {
+	content: '';
+	background-image: url(../img/line.png);
+	display: block;
+	height: 3px;
+}
+.page-footer .container {
+	position: relative;
+	margin: 0 auto;
+	width: 960px;
+	padding: 22px 0 0 26px;
+}
+.copyright {
+	width: 400px;
+	margin: 0 auto;
+	padding: 7px 0;
+	font-family: 'fira_sanslight';
+	font-size: 13px;
+}
+.enter {
+	position: absolute;
+	top: 24px;
+	left:52px;
+}
+.enter-link {
+	display: block;
+	background-image: url(../img/enter-spritesheet.png);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	width: 20px;
+	height: 32px;
+}
+.enter-link:hover {
+	background-position: -20px 0;
+}
