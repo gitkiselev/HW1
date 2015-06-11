@@ -2,6 +2,9 @@
 html, body {
 	height: 100%;
 }
+html {
+	overflow-y: scroll;
+}
 .wrapper{
 	position: relative;
 	min-height: 100%;
@@ -74,12 +77,7 @@ body {
 	height: 3px;
 	background-image: url(../img/line.png);
 }
-.page-wrapper {
-	
-}
-.social {
-	
-}
+
 .social-list {
 	margin: 0;
 	padding: 0;
@@ -136,11 +134,8 @@ body {
 	margin-left: 13px;
 }
 .info {
-
 	width: 650px;
 	float: right;
-	
-	padding-top: 0px;
 	
 }
 /*Навигация*/
@@ -250,45 +245,31 @@ body {
 /*Блок с контактами КОНЕЦ*/
 
 /*Правая часть основного контейнера*/
-.about-header,
-.exp-header,
-.edu-header {
+.infobox {
+	background-color: #EFF3F7;
+	border-radius: 4px;
+	margin-bottom: 26px;/*не будет подвергаться изменениям*/
+	
+}
+
+/*Общие стили для заголовков блока*/
+.infobox-header {
 	font-family: 'fira_sansbook';
 	font-size: 27px;
 	color: #3DA7C0;
 	border-bottom: 2px solid #3DA7C0;
-}
-.about {
-	padding-top: 1px;
-	padding-bottom: 41px;
-	margin-bottom: 26px;/*не будет подвергаться изменениям*/
-}
-/*Блок с текстом "Основная информация"*/
-/*Общие стили для хедеров*/
-.about-header,
-.exp-header,
-.edu-header {
-	padding: 12px 0 13px 0;
-	/*width: 345px;*/
+	display: inline-block;
+	padding: 12px 23px 13px 23px;
 	text-align: center;
-	font-size: 27px;
 	border-bottom: 2px solid #3DA7C0;
-	color: #3DA7C0;
-	margin-bottom: 18px;
+	margin-bottom: 11px;/****************11**********/
 }
-/*Индивидуальные стили для хедеров*/
-.about-header {
-	width: 345px;
-}
-.exp-header {
-	width: 209px;
-}
-.edu-header {
-	width: 214px;
-}
+
+/*Блок с текстом "Основная информация"*/
+
 .photo-wrapper {
 	float: left;
-	margin-top: 17px;
+	margin-top: 23px;
 	margin-left: 58px;
 }
 .about-photo {
@@ -304,6 +285,7 @@ body {
 .wrapper-about {
 	float: right;
 	width: 418px;
+	margin-top: 6px;
 }
 .about-list {
 	font-family: 'fira_sansbook';
@@ -328,6 +310,9 @@ body {
 	margin-left: 14px;
 	
 }
+.wrapper-about {
+	padding-bottom: 42px;
+}
 .skills-list {
 	padding: 0;
 	width: 192px;
@@ -343,11 +328,12 @@ body {
 	text-align: center;
 	
 }
-.about,
-.exp,
-.edu {
-	background-color: #EFF3F7;
+/*Стили для старых браузеров*/
+.no-cssgradients .skills-item {
+	background-color: #3CA4BD;
+	
 }
+
 .about-skills-title {
 	float: left;
 }
@@ -372,24 +358,26 @@ body {
 	padding-left: 35px;
 	list-style-type: none;
 	position: relative;
-	
+	padding-top: 15px;
+	padding-bottom: 19px;
 }
-.exp {
-	margin-bottom: 26px;
-	padding-bottom: 29px;
+/*Переопределим стили для нижнего отступа последнего блока*/
+.edu-list {
+	margin-bottom: 50px;
 }
+
 .exp-title {
 	padding-left: 26px;
-	margin-bottom: 7px;
+	margin-bottom: 19px;
 }
 /*Переопределяем pading слева из-за разной ширины иконок*/
 .edu-title1 {
 	padding-left: 23px;
-	margin-bottom: 12px;
+	margin-bottom: 18px;
 }
 .edu-title2 {
 	padding-left: 31px;
-	margin-bottom: 10px;
+	margin-bottom: 8px;
 }
 .exp-title:before
  {
@@ -402,7 +390,11 @@ body {
 	height: 34px;
 	background-position: 0 0;
 	margin-right: 30px;
-	margin-top: 8px;
+	margin-top: 1px;
+}
+.exp-name,
+.edu-name {
+	line-height: 1;
 }
 .edu-title1:before {
 	content: '';
@@ -414,7 +406,7 @@ body {
 	height: 23px;
 	background-position: 0 -34px;
 	margin-right: 30px;
-	margin-top: 10px;
+	margin-top: 1px;
 }
 .edu-title2:before {
 	content: '';
@@ -426,7 +418,7 @@ body {
 	height: 32px;
 	background-position: 0 -57px;
 	margin-right: 30px;
-	margin-top: 6px;
+	margin-top: 1px;
 }
 .exp-wrapper {
 	margin-left: 65px;
@@ -455,10 +447,7 @@ body {
 	font-family: 'fira_sanslight';
 	font-size: 15px;
 }
-.edu {
-	padding-bottom: 22px;
-	margin-bottom: 39px;
-}
+
 /*Блок "page-footer"*/
 .page-footer {
 	background-color: #EFF3F7;
