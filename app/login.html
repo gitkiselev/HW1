@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign in</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/contacts.css">
+	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="fonts/fira/fira.css">
+	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/modernizr.custom.55616.js"></script>
+	<!--<script src="js/jquery.placeholder.js"></script>-->
+	<script>
+		$('input[placeholder], textarea[placeholder]').placeholder();
+	</script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content clearfix">
+			<div class="container">
+				<div class="login-wrapper">
+					<div class="login-header">
+						<div class="login-title">Авторизируйтесь</div>
+					</div>
+					<div class="login-body">
+						<form id="login" action="mail.php" method="post" class="form">
+							<div class="server-response error"></div>
+							<div class="server-response success"></div>
+							<div class="form-group">
+								<label for="login" class="label">Логин</label>
+								<input type="text" id="name" name="login" class="input" placeholder="Введите логин" qtip-content="Введите логин">
+							</div>
+							<div class="form-group">
+								<label for="password" class="label">Пароль</label>
+								<input type="password" id="password" class="input" placeholder="Введите пароль" qtip-content="Введите пароль" name="password">
+							</div>
+							<button type="submit" class="btn">Войти</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<footer class="page-footer">
+		<div class="container">
+			<!--<div class="enter"><a class="enter-link" href=""></a></div>-->
+			<div class="copyright">&copy; 2015. Это мой сайт, пожалуйста не копируйте и не воруйте его</div>
+		</div>
+	</footer>
+ 
+ <script src="js/modal.js"></script>
+<script src="js/placeholder.js"></script>
+</body>
+</html>

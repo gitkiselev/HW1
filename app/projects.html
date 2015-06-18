@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="fonts/fira/fira.css">
 	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 	<script src="js/modernizr.custom.55616.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<!--<script src="js/jquery.placeholder.js"></script>-->
 	
 </head>
 <body>
@@ -17,20 +19,20 @@
 			<header class="page-header">
 				<div class="page-wrapper clearfix">
 					<div class="logo">
-						<a href="#"><img src="img/logo.png" alt="loftschool"></a>
+						<a href="index.html"><img src="img/logo.png" alt="loftschool"></a>
 					</div>
 					<div class="social">
 						<ul class="social-list">
 							<li class="social-item social-vk">
-								<a class="social-btn btn-vk" href="" target="_blank">Вконтакте</a>
+								<a class="social-btn btn-vk" href="https://vk.com/id46979289" target="_blank">Вконтакте</a>
 							</li>
 							<li class="social-item social-twitter">
-								<a class="social-btn btn-twitter" href="" target="_blank">Twitter</a></li>
+								<a class="social-btn btn-twitter" href="https://twitter.com/man198204" target="_blank">Twitter</a></li>
 							<li class="social-item social-fb">
-								<a class="social-btn btn-fb" href="" target="_blank">Facebbok</a>
+								<a class="social-btn btn-fb" href="https://www.facebook.com/profile.php?id=100004471866530" target="_blank">Facebbok</a>
 							</li>
 							<li class="social-item social-git">
-								<a class="social-btn btn-git" href="" target="_blank">Git</a>
+								<a class="social-btn btn-git" href="https://github.com/gitkiselev" target="_blank">Git</a>
 							</li>
 						</ul>
 					</div>
@@ -116,52 +118,83 @@
 	
 	<footer class="page-footer">
 		<div class="container">
-			<div class="enter"><a class="enter-link" href=""></a></div>
+			<div class="enter"><a class="enter-link" href="login.html"></a></div>
 			<div class="copyright">&copy; 2015. Это мой сайт, пожалуйста не копируйте и не воруйте его</div>
 		</div>
 	</footer>
 	<!--Окно "Добавление проекта"-->
-	<div class="modal-window">
-		<div id="new-project-popup" class="popup-body" style="left: 0; position: absolute; top: 177px; z-index: 9999; display: block; opacity: 1">
+	<div class="modal-window"></div>
+		<div id="new-project-popup" class="popup-body" style="left: 0; position: fixed; top: 130px; z-index: 9999; display: none; opacity: 1">
 			<div class="popup-wrapper">
 				<div class="popup-header">
 					<div class="popup-name">Добавление проекта</div>
 					<a class="popup-close" href="#"></a>
 				</div>
 				<div class="popup-form">
-					<form action="action.php" class="project-form">
-						<div class="server-response error"></div>
-						<div class="server-response success"></div>
+					<form id="form" action="mail.php" method="post" class="project-form">
+
+						<!--Всплывающий попап в случае ошибки-->
+        				<div class="popup popup-e" id="error">
+	        				<div class="popup__overlay"></div>
+	        				<div class="popup__content popup-content-position">
+		        				<div class="popup__content-inner">
+			       					
+				       					<div class="popup-title popup-title-e">Ошибка!</div>
+		        						<div class="popup-info popup-info-e">Невозможно добавить проект.</div>
+			       					
+		        				</div>
+		        				<a class="popup__close error-close-btn" href="#"></a>
+	        				</div>
+        				</div>
+        				<!--Всплывающий попап в случае ошибки КОНЕЦ-->
+
+						<!--Всплывающий попап с успешно загруженным проектом-->
+						<div class="popup popup-s" id="success">
+	        				<div class="popup__overlay"></div>
+	        					<div class="popup__content popup-content-position">
+		        					<div class="popup__content-inner">
+		        						<div class="popup-title popup-title-s">Ура!</div>
+		        						<div class="popup-info popup-info-s">Проект успешно добавлен</div>
+		        					</div>
+		        					<a class="popup__close success-close-btn" href="#"></a>
+	        					</div>
+        				</div>
+        				<!--Всплывающий попап с успешно загруженным проектом КОНЕЦ-->
+						
 						<div class="form-group">
 							<label for="project-name" class="label">Название проекта</label>
-							<input id="project-name" name="project-name" type="text" placeholder="Введите название" qtip-content="Введите название" class="input">
+							<input id="project-name" name="project-name" data-validation="text" type="text" placeholder="Введите название"  class="input">
 						</div>
 						<div class="form-group">
 							<div id="uploadfile" class="fileupload-wrapper">
 								<div class="label">Картинка проекта</div>
 								<label class="fileupload-label">
-									<input id="fileupload" type="file" name="files" class="fileupload">
+									<input id="fileupload" type="file" data-validation="file" name="files" class="fileupload">
 									<input id="fileurl" type="hidden" name="fileurl">
 								</label>
-								<input id="filename" name="filename" placeholder="Загрузите изображение" disabled qtip-content="Загрузите изображение" class="input">
+								<input id="filename" name="filename" placeholder="Загрузите изображение" disabled  class="input">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="project-url" class="label">URL проекта</label>
-							<input id="project-url" name="project-url" type="text" placeholder="Добавьте ссылку" qtip-content="Добавьте ссылку" class="input">
+							<input id="project-url" name="project-url" type="text" data-validation="text" placeholder="Добавьте ссылку"  class="input">
 						</div>
 						<div class="form-group">
 							<label for="project-description" class="label">Описание</label>
-							<textarea id="project-description" name="text" rows="3" placeholder="Пара слов о вашем проекте" qtip-content="Описание проекта обязательно" class="textarea"></textarea>
+							<textarea id="project-description" name="text" rows="3" placeholder="Пара слов о вашем проекте"  class="textarea"></textarea>
 						</div>
 						<div class="btn-wrapper">
-							<button type="submit" class="btn"></button>
+							<button type="submit" class="btn">Добавить</button>
 						</div>	
 					</form>
 				</div>
 			</div>
 		</div>
-	</div>
+	
+	
  <script src="js/modal.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/placeholder.js"></script>
+ 
 </body>
 </html>

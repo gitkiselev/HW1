@@ -1,0 +1,75 @@
+.container {
+	position: absolute;
+	top: 0;
+	bottom: 75px;
+	left: 0;
+	right: 0;
+}
+.login-wrapper {
+	background-color: #EFF3F7;
+	width: 590px;
+	height: 484px;
+	text-align: center;
+	position: absolute;
+	top: -113px;
+	bottom: 75px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	border-radius: 5px;
+	box-shadow: 0 6px 13px 0 rgba(0, 0, 0, .35);
+}
+.login-header {
+	padding: 15px 0;
+	border-bottom: 15px solid #68DDFA;
+	background-color: #4AC9E8;
+	border-radius: 5px 5px 0 0;
+}
+.login-title {
+	font-family: 'fira_sansbook';
+	font-size: 40px;
+	color: #fff;
+}
+.login-body {
+	padding: 16px 82px;
+}
+.form-group {
+	margin-bottom: 14px;
+}
+.login-wrapper .label {
+	font-family: 'fira_sanslight';
+	font-size: 36px;
+	color: #969AA8;
+}
+.login-wrapper .input {
+	font-size: 17px;
+	padding: 17px 12px;
+	height: 60px;
+}
+.login-wrapper .btn {
+	font-size: 36px;
+	height: 54px;
+	margin-top: 24px;
+	padding: 0 62px;
+	border-bottom: 4px solid #3DA7C0;
+}
+.login-wrapper .btn:hover {
+	border-bottom: 0;
+	
+	
+	
+}
+.login-wrapper .btn:active {
+	border-top: 4px solid #3da7c0;
+	border-bottom: none;
+	
+}
+.label {
+	text-align: center;
+}
+.popup-info-e {
+	color: #fa8075;
+}
+.popup-info-s {
+	color: #40bc7c;
+}

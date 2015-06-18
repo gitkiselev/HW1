@@ -8,27 +8,33 @@
 	<link rel="stylesheet" href="css/contacts.css">
 	<link rel="stylesheet" href="fonts/fira/fira.css">
 	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<!--<script src="js/jquery.placeholder.js"></script>-->
+	<script type="text/javascript">
+		$('input[placeholder], textarea[placeholder]').placeholder();
+	</script>
 	<script src="js/modernizr.custom.55616.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 	<div class="wrapper">
 			<header class="page-header">
 				<div class="page-wrapper clearfix">
 					<div class="logo">
-						<a href="#"><img src="img/logo.png" alt="loftschool"></a>
+						<a href="index.html"><img src="img/logo.png" alt="loftschool"></a>
 					</div>
 					<div class="social">
 						<ul class="social-list">
 							<li class="social-item social-vk">
-								<a class="social-btn btn-vk" href="" target="_blank">Вконтакте</a>
+								<a class="social-btn btn-vk" href="https://vk.com/id46979289" target="_blank">Вконтакте</a>
 							</li>
 							<li class="social-item social-twitter">
-								<a class="social-btn btn-twitter" href="" target="_blank">Twitter</a></li>
+								<a class="social-btn btn-twitter" href="https://twitter.com/man198204" target="_blank">Twitter</a></li>
 							<li class="social-item social-fb">
-								<a class="social-btn btn-fb" href="" target="_blank">Facebbok</a>
+								<a class="social-btn btn-fb" href="https://www.facebook.com/profile.php?id=100004471866530" target="_blank">Facebbok</a>
 							</li>
 							<li class="social-item social-git">
-								<a class="social-btn btn-git" href="" target="_blank">Git</a>
+								<a class="social-btn btn-git" href="https://github.com/gitkiselev" target="_blank">Git</a>
 							</li>
 						</ul>
 					</div>
@@ -60,19 +66,66 @@
 						</ul>
 					</div>
 				</div><!--Конец копирования на другие страницы-->
-				
+				<div class="info">
+					<div class="infobox">
+						<div class="infobox-header-wrapper">
+							<div class="infobox-header-form">У вас интересный проект? Напишите мне</div>
+						</div>
+						<div class="infobox-body">
+							<div class="infobox-body-wrapper">
+								<form action="mail.php" method="post" id="contacts-form" class="form-write">
+									
+									
+									<div class="form-wrapper clearfix">
+										<div class="form-group left-side">
+											<label for="name" class="label">Имя</label>
+											<input type="text" name="name" placeholder="Как к Вам обращаться" qtip-content="Введите имя" qtip-position="left" class="input">
+										</div>
+										<div class="form-group right-side">
+											<label for="e-mail" class="label">Email</label>
+											<input type="text" name="e-mail" placeholder="Куда мне писать" qtip-content="Введите email" qtip-position="right" class="input">
+										</div>
+									</div>	
+										<div class="form-group">
+											<label for="message" class="label">Сообщение</label>
+											<textarea id="message" name="message" rows="3" qtip-content="Что вы от меня хотите?" class="textarea" data-hasqtip="2" aria-describedby="qtip-2" placeholder="Кратко в чем суть"></textarea>
+										</div>
+										
+											<div class="captcha">
+												<label for="captcha" class="label">Подтвердите, что вы не робот</label>
+													
+														<div class="g-recaptcha" data-sitekey="6LcTMAgTAAAAAGGomzqJXpYHJ14gezrT750SXUvc"></div>
+															
+													</div>
+										<div class="button-group clearfix">
+											<button type="submit" class="btn btn-send">Отправить</button>
+											<button type="reset" class="btn btn-clear">Очистить</button>
+										</div>
+
+									
+								</form>
+							</div>
+						</div>
+					</div>
+				</div><!--END INFO-->
 			</div>
-Пока пустая страница
+
 		
 	</div>
 	
 	
 	<footer class="page-footer">
 		<div class="container">
-			<div class="enter"><a class="enter-link" href=""></a></div>
+			<div class="enter"><a class="enter-link" href="login.html"></a></div>
 			<div class="copyright">&copy; 2015. Это мой сайт, пожалуйста не копируйте и не воруйте его</div>
 		</div>
 	</footer>
- 
+	<div class="tooltip tooltip-left">
+		<div class="tooltip-inner"></div>
+	</div>
+	<div class="tooltip tooltip-right">
+		<div class="tooltip-inner"></div>
+	</div>
+ <script src="js/placeholder.js"></script>
 </body>
 </html>

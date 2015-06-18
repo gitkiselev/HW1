@@ -15,6 +15,7 @@
 	margin-left: 30px;/**/
 	margin-bottom: 112px;/*!!!!*/
 	/*margin-right: 5px;*/
+	display: inline-block;/********14/06/15***********/
 }
 .first-line {
 	margin-left: 23px;
@@ -112,30 +113,34 @@
 	right: 0;
 	bottom: 0;
 	opacity: 0.7;
-	background-color: #000;
+	background-color: rgb(0, 0, 0);
 	z-index: 9998;
 }
-.modal-window-show {
-	display: block;
-}
-#new-project-popup {
-	display: none;
-}
-.popup-body {
-	position: absolute;
-	left: 100px;
-	top: 274px;
-	z-index: 9999;
-	display: block;
+
+
+
+.popup-body{
+	position: fixed;
 	opacity: 1;
+	width: 100%;
+	height: 100%;
+	left: 100px;
+	top: 130px;
+	z-index: 9999;
+	display: none;
+	
 }
+
 .popup-wrapper {
 	background-color: #EFF3F7;
 	box-shadow: 0 6px 13px 0 rgba(0, 0, 0, .35);
 	border-radius: 5px;
 	width: 374px;
+	height: 607px;
+	margin: 0 auto;
 }
 .popup-header {
+	position: relative;
 	background-color: #4AC9E8;
 	border-bottom: 9px solid #68DDFA;
 	border-radius: 5px 5px 0 0;
@@ -163,6 +168,8 @@
     font-size: 12px;
     width: 100%;
     padding: 12px;
+    display: block;
+    border: 1px solid #4AC9E8;
 }
 .input,
 .server-response,
@@ -181,6 +188,8 @@
 	height: 39px;
 	color: #4AC9E8;
 	background-color: #fff;
+	border: none;
+	border: 1px solid #4AC9E8;
 }
 .fileupload-wrapper {
 	width: 100%;
@@ -190,7 +199,7 @@
 	display: block;
 	position: absolute;
 	width: 52px;
-	height: 39px;
+	height: 40px;
 	right: 0;
 	background-image: url(../img/upload-btn.png);
 	background-position: 10px 7px;
@@ -208,4 +217,96 @@
 	margin: -1px;
 	overflow: hidden;
 	padding: 0;
+}
+.qtip-mystyle {
+    background-color: #f97e76;
+    border-color: #f97e76;
+    color: #fff;
+    font-size: 13px
+}
+.btn-wrapper {
+	display: block;
+	text-align: center;
+	margin: 15px auto 21px;
+}
+.btn {
+	border: 0;
+	background-color: #4AC9E8;
+	height: 31px;
+	border-radius: 5px;
+	border-bottom: 2px solid #3DA7C0;
+	color: #fff;
+	padding: 0 22px;
+	font-size: 19px;
+}
+.btn:hover {
+	border-bottom: none;
+	
+	
+	
+}
+.btn:active {
+	border-top: 2px solid #3da7c0;
+	
+	
+}
+/*Для абсолютного позиционирования попапов*/
+.project-form {
+	position: relative;
+}
+/*Общие стили для закрывающих попапов*/
+.popup {
+	position: absolute;
+	z-index: 10000;
+	box-sizing: border-box;
+	width: 320px;
+	height: 61px;
+	border-radius: 5px;
+	border: 1px solid;
+	display: block;/*для разработки*/
+	/*display: none;/*окончательный вариант*/
+}
+/*Пишем общие стили для копок закрытия попапов*/
+.popup__close {
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	width: 11px;
+	height: 11px;
+	background-repeat: no-repeat;
+}
+.popup-title {
+	font-family: 'fira_sansbook';
+	font-size: 25px;
+}
+.popup-info {
+	font-family: 'fira_sansbook';
+	font-size: 15px;
+}
+.error-close-btn {
+	background-image: url(../img/close-error.png);
+}
+.success-close-btn {
+	background-image: url(../img/close-success.png);
+}
+.popup-content-position {
+	position: relative;
+}
+.popup-e {
+	top: 0px;
+	left: 0px;
+	background-color: #f2cccd;
+	border-color: #fa8075;
+}
+.popup-title-e {
+	color: #fa8075;
+}
+.popup-s {
+	top: 135px;
+	left: 0px;
+	background-color: #b7e1ce;
+	border-color: #40BC7C;
+}
+.popup-title-s {
+	color: #40bc7c;
 }

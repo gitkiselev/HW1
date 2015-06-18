@@ -1,0 +1,155 @@
+::-webkit-input-placeholder {color: #4AC9E8;
+font-size: 13px;}
+::-moz-placeholder          {color: #4AC9E8;
+	font-size: 13px;}/* Firefox 19+ */
+:-moz-placeholder           {color: #4AC9E8;
+	font-size: 13px;}/* Firefox 18- */
+:-ms-input-placeholder      {color: #4AC9E8;
+font-size: 13px;}
+
+/*Исчезающий placeholder при получении фокуса*/
+:focus::-webkit-input-placeholder {color: transparent}
+:focus::-moz-placeholder          {color: transparent}
+:focus:-moz-placeholder           {color: transparent}
+:focus:-ms-input-placeholder      {color: transparent}
+
+ 
+
+.infobox {
+	background-color: #EFF3F7;
+	border-radius: 4px;
+	margin-bottom: 39px;
+}
+.infobox-header-wrapper {
+	background-color: #4AC9E8;
+	border-bottom: 17px solid #68DDFA;
+	padding: 42px 0 37px;
+	text-align: center;
+	border-radius: 5px 5px 0 0;
+	margin-bottom: 48px;
+}
+.infobox-header-form {
+	font-family: 'fira_sansbook';
+	font-size: 27px;
+	color: #fff;
+}
+.infobox-body {
+	padding-bottom: 200px;
+}
+.infobox-body-wrapper {
+	width: 402px;
+	margin: 0 auto;
+}
+.input,.textarea {
+    box-sizing: border-box;
+    font-size: 13px;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #4AC9E8;
+ }
+ /*Убираем синюю обводку*/
+ .input,
+ .input:focus,
+ .textarea,
+ .textarea:focus,
+ .btn,
+ .btn:active{
+ 	outline: none;
+ }
+.textarea {
+	resize: none;/*убираем уголок справа внизу*/
+	width: 100%;
+	height: 180px;
+	color: #48cbe8;
+	overflow: auto;
+	
+	
+}
+/*Блоки ответов сервера при отправке формы*/
+.server-response {
+	border: 1px solid;
+	font-size: 12px;
+	width: 100%;
+	padding: 6px 12px;
+	margin-bottom: 6px;
+	display: none;
+}
+.error {
+	background-color: #fad2d1;
+	border-color: #f97e76;
+	color: #f97e76;
+}
+.success {
+	background-color: #b8e1ce;
+	border-color: #49bb7b;
+	color: #49bb7b;
+}/*Пишем общие стили*/
+.form-group {
+	margin-bottom: 15px;
+}
+/*Левая сторона*/
+.left-side {
+	float: left;
+}
+/*Делаем ширину формы в половину обертки с небольшим отступом*/
+.form-write .form-wrapper .form-group {
+	width: 48%;
+}
+.label {
+	color: #969aa8;
+	font-family: 'fira_sanslight';
+	font-size: 19px;
+	display: block;
+	text-align: left;
+	
+}
+.input {
+	height: 41px;
+	color: #4AC9E8;
+	/*background-color: #fff;*/
+}
+.input,
+.server-response,
+.textarea {
+	border-radius: 4px;
+}
+/*Правая сторона*/
+.right-side {
+	float: right;
+}
+.captcha{
+	text-align: center;
+	margin-bottom: 21px;
+}
+
+/*Оформление кнопок*/
+.btn {
+	background-color: #4AC9E8;
+	color: #fff;
+	font-family: 'fira_sansbook';
+	font-size: 19px;
+	border: 0;
+	border-radius: 5px;
+	height: 31px;
+	padding: 0 22px;
+	border-bottom: 2px solid #3DA7C0;
+}
+/*Для эффекта вдавливания. Если поставить 2px solid
+ transparent, то кнопка статична*/
+.btn:hover {
+	border-bottom: none;
+}
+.btn:active {
+	border-top: 2px solid #3da7c0;
+}
+.btn-send {
+	float: left;
+}
+.btn-clear {
+	float: right;
+}
+/*Не забудем добавить класс clearfix для обертки, чтобы 
+не было блока с нулевой высотой*/
+.g-recaptcha {
+	display: inline-block;
+}
