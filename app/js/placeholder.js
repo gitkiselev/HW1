@@ -60,7 +60,7 @@ function postFormData(form, successCallback) {
         dataObject  = {};
 
     if (!host) {
-        console.log('set action attribute to your form');
+        console.log('set action attribute to your form, you fool!!');
     }
 
     reqFields.each(function(){
@@ -83,10 +83,8 @@ function validateThis(form) {
     var
         textType = form.find("[data-validation='text']"),
         mailType = form.find("[data-validation='mail']"),
-        fileType = form.find("[data-validation='file']"),
         isValid = true;
-
-        if (isValid){
+    if(isValid) {   
 
     textType.each(function(){
 
@@ -106,7 +104,7 @@ function validateThis(form) {
         }
     });
 }
-if (isValid) {
+    if(isValid){
     mailType.each(function(){
         var
             $this = $(this),
@@ -124,16 +122,14 @@ if (isValid) {
         }
     });
 }
-
-    
-
-return isValid
+    return isValid
+}
 
 $.fn.tooltip = function(options) {
 
     options = {
         position    : options.position || 'right',
-        content     : options.content || 'Вы не заполнили поле'
+        content     : options.content || 'I am tooltip'
     };
 
     var
@@ -235,4 +231,4 @@ $.fn.tooltip = function(options) {
     }
 
 
-});
+};

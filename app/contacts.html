@@ -10,9 +10,7 @@
 	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<!--<script src="js/jquery.placeholder.js"></script>-->
-	<script type="text/javascript">
-		$('input[placeholder], textarea[placeholder]').placeholder();
-	</script>
+	
 	<script src="js/modernizr.custom.55616.js"></script>
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
@@ -73,22 +71,22 @@
 						</div>
 						<div class="infobox-body">
 							<div class="infobox-body-wrapper">
-								<form action="mail.php" method="post" id="contacts-form" class="form-write">
+								<form action="mail.php" method="post" id="contacts-form" class="form form-write" id="form">
 									
 									
 									<div class="form-wrapper clearfix">
 										<div class="form-group left-side">
 											<label for="name" class="label">Имя</label>
-											<input type="text" name="name" placeholder="Как к Вам обращаться" qtip-content="Введите имя" qtip-position="left" class="input">
+											<input type="text" name="name" data-validation="text" placeholder="Как к Вам обращаться" class="input">
 										</div>
 										<div class="form-group right-side">
 											<label for="e-mail" class="label">Email</label>
-											<input type="text" name="e-mail" placeholder="Куда мне писать" qtip-content="Введите email" qtip-position="right" class="input">
+											<input type="text" name="e-mail" data-validation="mail" placeholder="Куда мне писать" class="input">
 										</div>
 									</div>	
 										<div class="form-group">
 											<label for="message" class="label">Сообщение</label>
-											<textarea id="message" name="message" rows="3" qtip-content="Что вы от меня хотите?" class="textarea" data-hasqtip="2" aria-describedby="qtip-2" placeholder="Кратко в чем суть"></textarea>
+											<textarea id="message" name="message" rows="3" qtip-content="Что вы от меня хотите?" class="textarea" placeholder="Кратко в чем суть"></textarea>
 										</div>
 										
 											<div class="captcha">

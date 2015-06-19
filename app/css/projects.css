@@ -5,7 +5,7 @@
 .projects-inner {
 	width: 650px;
 	padding-top: 16px;
-	min-height: 718px;
+	/*min-height: 718px;*/
 	margin-bottom: 39px;
 }
 /*Обертка для позиционирования отдельного блока*/
@@ -308,5 +308,14 @@
 	border-color: #40BC7C;
 }
 .popup-title-s {
+	color: #40bc7c;
+}
+.popup-title-e {
+	color: #fa8075;
+}
+.popup-info-e {
+	color: #FA8075;
+}
+.popup-info-s {
 	color: #40bc7c;
 }
