@@ -9,6 +9,8 @@ $(document).ready(function(){
 
 		var
 			$this = $(this);
+			
+
 
 		if (validateThis($this)) {
 
@@ -74,72 +76,133 @@ function postFormData(form, successCallback) {
 
 	$.post(host, dataObject, successCallback);
 }
+//Функция выделения незаполненных полей
+/*function checkInput() {
+	form.find('.req-field').each(function(){
+		if($(this).val() ! = '') {
+			$(this).removeClass('empty-field');
+		}else {
+			$(this).addClass('.empty-field');
+		}
+		
+	});
+}
+function checkInput();
 
-
-/* --------- валидация формы входа --------- */
+/* --------- валидация --------- */
 
 function validateThis(form) {
 
 	var
-		textType = form.find("[data-validation='text']"),
-		passType = form.find("[data-validation='password']"),
+		textType = form.find("#project-name"),
+		imgType = form.find("#fileupload"),
+		urlType = form.find("#project-url"),
+		textareaType = form.find("#project-description"),
 		isValid = true;
-		
-	if(isValid) {
 
-		textType.each(function(){//для логина
+		if (isValid) {
 
-			var
-				$this = $(this),
-				notEmptyField = !!$this.val();
+	textType.each(function(){
 
-				if (notEmptyField) {
-				isValid = true;
-			} else {
-				$this.tooltip({
-					content: 'введите логин',
-					position: 'left'
-				});
-
-			isValid = false;
-			}
-		});
-	} 
-
-	if(isValid){
-	passType.each(function(){//для пароля
 		var
 			$this = $(this),
 			notEmptyField = !!$this.val();
+
+		if (notEmptyField) {
+			isValid = true;
+			$this.focus().removeClass('empty-field');
+		} else {
+			$this.tooltip({
+				content: 'введите название',
+				position: 'left'
+			});
+			$this.addClass('.empty-field');
+
+			isValid = false;
+		}
+	});
+		}
+
+		if (isValid) {
+
+	imgType.each(function(){
+
+		var
+			$this = $(this),
+			notEmptyField = !!$this.val();
+
 		if (notEmptyField) {
 			isValid = true;
 		} else {
 			$this.tooltip({
-				content : 'введите пароль',
-				position : 'left'
+				content: 'изображение',
+				position: 'left'
 			});
+			$this.addClass('.empty-field');
+
 			isValid = false;
 		}
 	});
-}return isValid
-}
+		}
+
+		if (isValid) {
+
+	urlType.each(function(){
+
+		var
+			$this = $(this),
+			notEmptyField = !!$this.val();
+
+		if (notEmptyField) {
+			isValid = true;
+		} else {
+			$this.tooltip({
+				content: 'описание проекта',
+				position: 'left'
+			});
+			$this.addClass('.empty-field');
+
+			isValid = false;
+		}
+	});
+		}
+
+		if (isValid) {
+	textarea.each(function(){
+
+		var
+			$this = $(this),
+			notEmptyField = !!$this.val();
+
+		if (notEmptyField) {
+			isValid = true;
+		} else {
+			$this.tooltip({
+				content: 'описание проекта',
+				position: 'left'
+			});
+			$this.addClass('.empty-field');
+
+			isValid = false;
+		}	
+	});
+		}
 
 
+return isValid
+};
 
-
-
-/****************Функция для создания тултипа********************/
 $.fn.tooltip = function(options) {
 
 	options = {
-		position    : options.position || 'left',
+		position    : options.position || 'right',
 		content     : options.content || 'I am tooltip'
 	};
 
 	var
 		markup = '<div class="tooltip tooltip_' + options.position + '"> \
 						<div class="tooltip__inner">' + options.content + '</div> \
-				  </div>';
+					</div>';
 
 	var
 		$this = this,
@@ -178,7 +241,7 @@ $.fn.tooltip = function(options) {
 		});
 
 	});
-//Функция для позиционирования тултипа
+
 	function _positionIt(elem, tooltip, position) {
 
 		//измеряем элемент
@@ -232,7 +295,7 @@ $.fn.tooltip = function(options) {
 		tooltip
 			.offset(positions)
 			.css('opacity', '1');
-	};
+	}
 
 
 };

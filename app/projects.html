@@ -163,13 +163,13 @@
 						
 						<div class="form-group">
 							<label for="project-name" class="label">Название проекта</label>
-							<input id="project-name" name="project-name" data-validation="text" type="text" placeholder="Введите название"  class="input">
+							<input id="project-name" name="project-name" data-validation="text" type="text" placeholder="Введите название"  class="input req-field">
 						</div>
 						<div class="form-group">
 							<div id="uploadfile" class="fileupload-wrapper">
 								<div class="label">Картинка проекта</div>
 								<label class="fileupload-label">
-									<input id="fileupload" type="file" data-validation="file" name="files" class="fileupload">
+									<input id="fileupload" type="file" data-validation="file" name="files" class="fileupload req-field">
 									<input id="fileurl" type="hidden" name="fileurl">
 								</label>
 								<input id="filename" name="filename" placeholder="Загрузите изображение" disabled  class="input">
@@ -177,11 +177,11 @@
 						</div>
 						<div class="form-group">
 							<label for="project-url" class="label">URL проекта</label>
-							<input id="project-url" name="project-url" type="text" data-validation="text" placeholder="Добавьте ссылку"  class="input">
+							<input id="project-url" name="project-url" type="text" data-validation="text" placeholder="Добавьте ссылку"  class="input reqfield">
 						</div>
 						<div class="form-group">
 							<label for="project-description" class="label">Описание</label>
-							<textarea id="project-description" name="text" rows="3" placeholder="Пара слов о вашем проекте"  class="textarea"></textarea>
+							<textarea id="project-description" name="text" rows="3" placeholder="Пара слов о вашем проекте"  class="textarea req-field"></textarea>
 						</div>
 						<div class="btn-wrapper">
 							<button type="submit" class="btn">Добавить</button>
@@ -192,9 +192,10 @@
 		</div>
 	
 	
- <script src="js/modal.js"></script>
- <script src="js/main.js"></script>
- <script src="js/placeholder.js"></script>
  
+ <script src="js/main.js"></script>
+ 
+ <!--<script src="js/projects-form.js"></script>-->
+ <script src="js/projects-form2.js"></script>
 </body>
 </html>
