@@ -117,7 +117,10 @@ function validateThis(form) {
 				position: 'left'
 			});
 			$this.addClass('.empty-field');
-
+			
+				$this.focus(function(){
+					$this.removeClass('empty-field')
+				});
 			isValid = false;
 		}
 	});
@@ -138,8 +141,11 @@ function validateThis(form) {
 				content: 'изображение',
 				position: 'left'
 			});
-			$this.addClass('.empty-field');
-
+			
+			$this.addClass('empty-field');
+				$this.focus(function(){
+					$this.removeClass('empty-field')
+				});
 			isValid = false;
 		}
 	});
@@ -161,14 +167,17 @@ function validateThis(form) {
 				position: 'left'
 			});
 			$this.addClass('.empty-field');
-
+			
+				$this.focus(function(){
+					$this.removeClass('empty-field')
+				});
 			isValid = false;
 		}
 	});
 		}
 
 		if (isValid) {
-	textarea.each(function(){
+	textareaType.each(function(){
 
 		var
 			$this = $(this),
@@ -183,6 +192,9 @@ function validateThis(form) {
 			});
 			$this.addClass('.empty-field');
 
+				$this.focus(function(){
+					$this.removeClass('empty-field')
+				});
 			isValid = false;
 		}	
 	});

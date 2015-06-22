@@ -6,6 +6,8 @@ $(document).ready(function(){
 
 	$('#form').on('submit', function(e){
 		e.preventDefault();
+		
+
 
 		var
 			$this = $(this);
@@ -95,10 +97,15 @@ function validateThis(form) {
 
 				if (notEmptyField) {
 				isValid = true;
+				
 			} else {
 				$this.tooltip({
 					content: 'введите логин',
 					position: 'left'
+				});
+				$this.addClass('empty-field');
+				$this.focus(function(){//удаляем красную подсветку при получении фокуса
+					$this.removeClass('empty-field')
 				});
 
 			isValid = false;
@@ -118,6 +125,10 @@ function validateThis(form) {
 				content : 'введите пароль',
 				position : 'left'
 			});
+			$this.addClass('empty-field');
+				$this.focus(function(){
+					$this.removeClass('empty-field')
+				});
 			isValid = false;
 		}
 	});

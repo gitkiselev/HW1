@@ -85,6 +85,7 @@ function validateThis(form) {
     projectName = form.find("#project-name"),
     projectImage = form.find('#fileupload'),
     projectURL = form.find('#project-url'),
+    textareaType = form.find('#project-description'),
     isValid = true;
   if(isValid) {
 
@@ -147,6 +148,26 @@ function validateThis(form) {
   });
 }return isValid
 
+if (isValid) {
+  textareaType.each(function(){//для описания проекта
+    var
+      $this = $(this),
+      notEmptyField = !!$this.val();
+    if (notEmptyField) {
+      isValid = true;
+    } else {
+      $this.tooltip({
+        content : 'описание проекта',
+        position : 'left'
+      });
+      $this.addClass('empty-field');
+        $this.focus(function(){
+          $this.removeClass('empty-field')
+        });
+      isValid = false;
+    }
+  });
+}return isValid
 
 }
 
@@ -156,7 +177,7 @@ function validateThis(form) {
   //form.find('.req-field').addClass('empty-field');
 //}
 
-function validateThis(form) {
+/*function validateThis(form) {
 
   //Функция проверки полей формы
 

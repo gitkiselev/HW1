@@ -124,7 +124,7 @@
 	</footer>
 	<!--Окно "Добавление проекта"-->
 	<div class="modal-window"></div>
-		<div id="new-project-popup" class="popup-body" style="left: 0; position: fixed; top: 130px; z-index: 9999; display: none; opacity: 1">
+		<div id="new-project-popup" class="popup-body">
 			<div class="popup-wrapper">
 				<div class="popup-header">
 					<div class="popup-name">Добавление проекта</div>
@@ -169,10 +169,10 @@
 							<div id="uploadfile" class="fileupload-wrapper">
 								<div class="label">Картинка проекта</div>
 								<label class="fileupload-label">
-									<input id="fileupload" type="file" data-validation="file" name="files" class="fileupload req-field">
+									<input id="fileupload" type="file"  name="files" class="fileupload req-field">
 									<input id="fileurl" type="hidden" name="fileurl">
 								</label>
-								<input id="filename" name="filename" placeholder="Загрузите изображение" disabled  class="input">
+								<input id="filename" name="filename" data-validation="file" placeholder="Загрузите изображение" disabled  class="input">
 							</div>
 						</div>
 						<div class="form-group">
@@ -181,7 +181,7 @@
 						</div>
 						<div class="form-group">
 							<label for="project-description" class="label">Описание</label>
-							<textarea id="project-description" name="text" rows="3" placeholder="Пара слов о вашем проекте"  class="textarea req-field"></textarea>
+							<textarea id="project-description" name="text" rows="3" placeholder="Пара слов о вашем проекте"  data-validation="text" class="textarea req-field"></textarea>
 						</div>
 						<div class="btn-wrapper">
 							<button type="submit" class="btn">Добавить</button>
@@ -194,8 +194,7 @@
 	
  
  <script src="js/main.js"></script>
+ <script src="js/main2.js"></script>
  
- <!--<script src="js/projects-form.js"></script>-->
- <script src="js/projects-form2.js"></script>
 </body>
 </html>
