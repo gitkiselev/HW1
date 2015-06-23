@@ -15,7 +15,7 @@
 	margin-left: 30px;/**/
 	margin-bottom: 112px;/*!!!!*/
 	/*margin-right: 5px;*/
-	display: inline-block;/********14/06/15***********/
+	display: inline-block;
 }
 .first-line {
 	margin-left: 23px;
@@ -104,7 +104,7 @@
 	padding: 1px 25px 30px 25px;
 }
 
-/*Popup окно "Добавление проекта"*/
+/*подложка с прозрачностью*/
 .modal-window {
 	display: none;
 	position: fixed;
@@ -114,10 +114,10 @@
 	bottom: 0;
 	opacity: 0.7;
 	background-color: rgb(0, 0, 0);
-	z-index: 9998;
+	z-index: 9999;
 }
 
-
+/*Popup окно "Добавление проекта"*/
 
 .popup-body{
 	position: fixed;
@@ -152,13 +152,16 @@
 	color: #fff;
 }
 .popup-close {
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	top: 9px;
-	right: 12px;
-	background-image: url(../img/close-btn.png);
+  display: block;
+  background: url("/img/close-btn.png") 0 0 no-repeat;
+  width: 36px;
+  height: 35px;
+  position: absolute;
+  top: 10px;
+  right: 0; 
 }
+
+
 .popup-form {
 	padding: 7px 22px;
 }
@@ -250,6 +253,7 @@
 	position: relative;
 }
 /*Общие стили для закрывающих попапов*/
+
 .popup {
 	position: absolute;
 	z-index: 10000;
@@ -261,7 +265,7 @@
 	display: block;/*для разработки*/
 	/*display: none;/*окончательный вариант*/
 }
-/*Пишем общие стили для кнопок закрытия попапов*/
+/*Пишем общие стили позиционирования для кнопок закрытия попапов*/
 .popup__close {
 	position: absolute;
 	top: 6px;
@@ -284,9 +288,11 @@
 .success-close-btn {
 	background-image: url(../img/close-success.png);
 }
+/*для абсолютного позиционирования кнопки-картинки*/
 .popup-content-position {
 	position: relative;
 }
+/*Оформление попапа "невозможно добавить проект"*/
 .popup-e {
 	top: 0px;
 	left: 0px;
@@ -296,6 +302,7 @@
 .popup-title-e {
 	color: #fa8075;
 }
+/*Оформление попапа "проект успешно добавлен"*/
 .popup-s {
 	top: 135px;
 	left: 0px;
@@ -314,179 +321,22 @@
 .popup-info-s {
 	color: #40bc7c;
 }
-/* --------- tooltip --------- 
-.divider {
-  margin: 50px; }
 
-.tooltip {
-  display: inline-block;
-  position: absolute;
-  opacity: 0;
-  z-index: 11000;
-  -webkit-transition: opacity .3s;
-  -moz-transition: opacity .3s;
-  -ms-transition: opacity .3s;
-  -o-transition: opacity .3s;
-  transition: opacity .3s; }
-
-.tooltip__inner {
-  max-width: 130px;
-  padding: 3px 8px;
-  color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-  background-color: #FA8075;
-  border-radius: 4px;
-  font-size: 12px;
-  white-space: nowrap; }
-  .tooltip__inner:after {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px; }
-
-.tooltip_right, .tooltip_left {
-  padding: 0 5px; }
-  .tooltip_right .tooltip__inner:after, .tooltip_left .tooltip__inner:after {
-    top: 50%;
-    margin-top: -5px; }
-
-.tooltip_top, .tooltip_bottom {
-  padding: 5px 0px; }
-  .tooltip_top .tooltip__inner:after, .tooltip_bottom .tooltip__inner:after {
-    left: 50%;
-    margin-left: -5px; }
-
-.tooltip_top .tooltip__inner:after {
-  bottom: 0;
-  border-top-color: #FA8075;
-  border-bottom-width: 0px; }
-
-.tooltip_left .tooltip__inner:after {
-  right: 0;
-  border-left-color: #FA8075;
-  border-right-width: 0px; }
-
-.tooltip_right .tooltip__inner:after {
-  left: 0;
-  border-right-color: #FA8075;
-  border-left-width: 0px; }
-
-.tooltip_bottom .tooltip__inner:after {
-  top: 0;
-  border-bottom-color: #FA8075;
-  border-top-width: 0px; }
-
-/* --------- popups --------- */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none; }
-
-.popup__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); }
-
-.popup__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  padding: 50px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background: #ffffff; }
-
-.popup__close {
-  display: block;
-  background: url("/img/close-btn.png") 0 0 no-repeat;
-  width: 36px;
-  height: 35px;
-  position: absolute;
-  top: -18px;
-  right: -18px; }
-
-}
-  .error {
+#error {
     border-color: #f97e76;
     background: rgba(249,126,118,.3)
 }
-  .focused-field {
+.focused-field {
   	border: 1px solid #4AC9E8;
   	background-color: #fff;
   }
-  .empty-field {
+.empty-field {
 	border: 1px solid #fa8075;
 	background-color: #f2cccd;
 	opacity: .5;
 }
-/* --------- popups --------- */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none; }
-
-.popup__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); }
-
-.popup__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  -moz-transform: translateX(-50%) translateY(-50%);
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -o-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  padding: 50px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  border-radius: 10px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
-  background: #ffffff; }
-
-.popup__close {
-  display: block;
-  background: url("/img/close-btn.png") 0 0 no-repeat;
-  width: 36px;
-  height: 35px;
-  position: absolute;
-  top: -18px;
-  right: -18px; }
-
-
 /* --------- tooltip --------- */
-.divider {
-  margin: 50px; }
+
 
 .tooltip {
   display: inline-block;
@@ -508,8 +358,9 @@
   background-color: #fa8075;
   border-radius: 4px;
   font-size: 12px;
-  white-space: nowrap; }
-  .tooltip__inner:after {
+  white-space: nowrap; 
+}
+.tooltip__inner:after {
     content: "";
     display: block;
     position: absolute;
@@ -517,56 +368,51 @@
     height: 0;
     border-color: transparent;
     border-style: solid;
-    border-width: 5px; }
+    border-width: 5px;
+}
 
 .tooltip_right, .tooltip_left {
-  padding: 0 5px; }
-  .tooltip_right .tooltip__inner:after, .tooltip_left .tooltip__inner:after {
+  padding: 0 5px; 
+}
+
+.tooltip_right .tooltip__inner:after, .tooltip_left .tooltip__inner:after {
     top: 50%;
     margin-top: -5px; }
 
 .tooltip_top, .tooltip_bottom {
-  padding: 5px 0px; }
-  .tooltip_top .tooltip__inner:after, .tooltip_bottom .tooltip__inner:after {
+  padding: 5px 0px; 
+}
+
+.tooltip_top .tooltip__inner:after, .tooltip_bottom .tooltip__inner:after {
     left: 50%;
-    margin-left: -5px; }
+    margin-left: -5px; 
+}
 
 .tooltip_top .tooltip__inner:after {
   bottom: 0;
   border-top-color: #fa8075;
-  border-bottom-width: 0px; }
+  border-bottom-width: 0px; 
+}
 
 .tooltip_left .tooltip__inner:after {
   right: 0;
   border-left-color: #fa8075;
-  border-right-width: 0px; }
+  border-right-width: 0px; 
+}
 
 .tooltip_right .tooltip__inner:after {
   left: 0;
   border-right-color: #fa8075;
-  border-left-width: 0px; }
+  border-left-width: 0px; 
+}
 
 .tooltip_bottom .tooltip__inner:after {
   top: 0;
   border-bottom-color: #fa8075;
-  border-top-width: 0px; }
+  border-top-width: 0px; 
+}
 
-/* --------- popups --------- */
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: none; }
-
-.popup__overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); }
+/* --------- popups алерты--------- */
 
 .popup__content {
   position: absolute;
@@ -584,14 +430,7 @@
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  background: #ffffff; }
-
-.popup__close {
-  display: block;
-  background: url("/img/close-btn.png") 0 0 no-repeat;
-  width: 36px;
-  height: 35px;
-  position: absolute;
-  top: -18px;
-  right: -18px; }
+  background: #fff;
+}
+/*Кнопка закрытия алерта с проектами*/
 

@@ -203,6 +203,7 @@ font-size: 13px;}
   margin: 50px; }
 
 .tooltip {
+  
   display: inline-block;
   position: absolute;
   opacity: 0;

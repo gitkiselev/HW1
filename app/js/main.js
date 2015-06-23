@@ -8,15 +8,15 @@ $(function (){
 	$('.popup-close').click(function (){
 		$('.modal-window').css('display','none');
 		$('.popup-body').css('display','none');
-		$(window).click(function(){
-			$('.modal-window').css('display', 'none');
-		});
+		
 
 	});
 	$('.popup__close').click(function (){
 		$('.popup').css('display', 'none');
 	});
-	
+	$('.popup-close').click(function(){
+		$('.tooltip').remove();
+	})
     
 });
 
