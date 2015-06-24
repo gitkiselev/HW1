@@ -1,13 +1,16 @@
 /*Кроссбраузерные события*/
 $(function (){
 	$('.projects-item-add').click(function (){
+		console.log('открываем модальное окно с подложкой');
 		$('.modal-window').css('display','block');
 		$('.popup-body').css('display', 'block');
 
 	});
 	$('.popup-close').click(function (){
+		console.log('закрываем окно, удаляем тултипы и красную обводку');
 		$('.modal-window').css('display','none');
 		$('.popup-body').css('display','none');
+		$('.tooltip').remove();
 		$('.error').removeClass('.error');
 		
 
@@ -16,8 +19,10 @@ $(function (){
 		$('.popup').css('display', 'none');
 	});
 	$('.popup-close').click(function(){
+		console.log('закрываем окно, удаляем тултипы и красную обводку');
 		$('.tooltip').remove();
-	})
+		$('.error').removeClass('error');
+	});
     
 });
 

@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	if ($('.popup').length) {
-		Popups.init()
+		Popups.init();
 	}
 
 	$('form').on('submit', function(e){
@@ -25,16 +25,50 @@ $(document).ready(function(){
 		console.log('Очистка формы от красной обводки и тултипов');
 		$('.tooltip').remove();//пробуем, заработало
 		$('input, textarea').removeClass('error');
-		/*$('').('');*/
+		
 	});
-	$('input, textarea').focus(function(){//здесь все работает
+}); // - > ready_end;	
+	$('#project-name').on('change keydown', function(){
+							console.log('удаляются почему-то все');
+							$('.tooltip').remove();//пробуем
+						});
+	$('#projectURL').on(' change keydown', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем
+						});
+	$('#fileLoad').on('keydown change', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем
+						});
+	$('#contactsName').on('keydown change', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем
+						});
+	$('#contactsMessage').on('keydown change', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем не работает
+							$('.error').remove();
+						});
+	$('#nameUser').on('keydown change', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем
+						});
+	$('#passUser').on('keydown change', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем
+						});
+	$('#mailName').on('keydown change', function(){
+							console.log('удаляем');
+							$('.tooltip').remove();//пробуем
+						});
+	/*$('input, textarea').focus(function(){//здесь все работает
 		console.log('поле получило фокус');
 		//$('input, textarea').removeClass('tooltip');
-		$(this).removeClass('error');//работает
+		$(this).removeClass('error');//работает, но нужно по-другому
 	});
-	/*$('input, textarea').on('change, keydown', function(){
+	/*$('input, textarea').on('change keydown', function(){
 		console.log('удаляем класс tooltip');
-		$(this)$('.tooltip').remove();//но снимает все тултипы
+		$('.tooltip').remove();//но снимает все тултипы тут понятно почему
 	});*/
 	/*$('input, textarea').on('focus, change', function(){
 		console.log('удаляем тултипы при получении фокуса поля');
@@ -46,7 +80,7 @@ $(document).ready(function(){
 		$('input, textarea').removeClass('.error');
 	});*/
 
-}); // - > ready_end;
+
 
 var Popups = (function(){
 		var popups = $('.popup');
@@ -74,7 +108,7 @@ var Popups = (function(){
 function postFormData(form, successCallback){
 	var
 		host       = form.attr('action'),
-		reqFields  = form.find('[name]'),
+		reqFields  = form.find('id'),
 		dataObject = {};
 	if (!host){
 		console.log('Set action attribute to your form');
@@ -90,33 +124,17 @@ function postFormData(form, successCallback){
 }/// -> postformdata END
 
 function validateThis(form){
-			console.log('Проверяем форму');
-			var projectName     = form.find("#project-name"),
-				projectURL      = form.find("#project-url"),
-				mailName        = form.find("#contacts-mail"),
-				fileLoad        = form.find("#filename"),
-				projectDesc     = form.find("#project-description"),
-				contactsName    = form.find("#contacts-name"),
-				contactsMessage = form.find("#contacts-message"),
-				nameUser        = form.find("#name"),
-				passUser        = form.find("#password"),
-				isValid         = true;
-
-				/*projectName.tooltip('destroy');
-				projectURL.tooltip('destroy');
-				mailType.tooltip('destroy');
-				fileType.tooltip('destroy');
-				projectDesc.tooltip('destroy');
-				contactsName.tooltip('destroy');
-				contactsMessage.tooltip('destroy');
-				nameUser.tooltip('destroy');
-				passUser.tooltip('destroy');*/
-
-				
-
-
-
-
+	console.log('Проверяем форму');
+		var projectName     = form.find("#project-name"),
+			projectURL      = form.find("#project-url"),
+			mailName        = form.find("#contacts-mail"),
+			fileLoad        = form.find("#filename"),
+			projectDesc     = form.find("#project-description"),
+			contactsName    = form.find("#contacts-name"),
+			contactsMessage = form.find("#contacts-message"),
+			nameUser        = form.find("#name"),
+			passUser        = form.find("#password"),
+			isValid         = true;
 
 				projectName.each(function(){
 					var $this		= $(this),
@@ -126,12 +144,9 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						projectName.removeClass('error');
-						console.log('удаляем красную обводку');
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						})
+						//projectName.removeClass('error');
+						//console.log('удаляем красную обводку');
+						
 						
 
 						
@@ -155,11 +170,8 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						})
-						//$this.tooltip('hide');
+
+						
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -177,10 +189,7 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						})
+						
 						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
@@ -199,10 +208,7 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						});
+						
 						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
@@ -221,10 +227,7 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						});
+						
 						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
@@ -243,10 +246,7 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем не работает
-						});
+						
 						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
@@ -265,10 +265,7 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						});
+						
 						//$this.tooltip('hide');
 
 					}else{
@@ -288,10 +285,7 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
-						$this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						});
+						
 						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
@@ -311,10 +305,7 @@ function validateThis(form){
 
 					if(isMail){
 						 isValid = true;
-						 $this.on('keydown, change', function(){
-							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
-							$('.tooltip').remove();//пробуем
-						});
+						 
 						 //$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
@@ -328,7 +319,7 @@ function validateThis(form){
 
 			
 			return isValid;/////////2306
-		};
+}
 
 
 
@@ -357,8 +348,9 @@ $.fn.tooltip = function(options) {
 
 	//Чтобы тултипы пропадали по клику
 	/*$(document).on('click', function(){
+		console.log('кликнули в любом месте и тултипы удалились');
 		$('.tooltip').remove();
-	});*/
+	});работает, но нужно не это*/
 	
 	//переотрисовка тултипов
 	$(window).on('resize', function(){
