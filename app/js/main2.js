@@ -22,22 +22,29 @@ $(document).ready(function(){
 		}
 	});
 	$('form').on('reset', function(){//очистка формы по клавише "reset"
-		console.log('Очистка формы');
-		$('input, textarea').removeClass('tooltip');
+		console.log('Очистка формы от красной обводки и тултипов');
+		$('.tooltip').remove();//пробуем, заработало
 		$('input, textarea').removeClass('error');
-		//$('input, textarea').removeClass('error');
+		/*$('').('');*/
 	});
-	$('input, textarea').focus(function(){
+	$('input, textarea').focus(function(){//здесь все работает
 		console.log('поле получило фокус');
-		$(this).removeClass('error');
-		//$(this).addClass('tooltip');//
+		//$('input, textarea').removeClass('tooltip');
+		$(this).removeClass('error');//работает
 	});
-	$('input, textarea').change(function(){
-		$(this).tooltip('destroy');
-	});
-	$('input, textarea').on('focus, change', function(){
-		$(this).removeClass('tooltip');
-	})
+	/*$('input, textarea').on('change, keydown', function(){
+		console.log('удаляем класс tooltip');
+		$(this)$('.tooltip').remove();//но снимает все тултипы
+	});*/
+	/*$('input, textarea').on('focus, change', function(){
+		console.log('удаляем тултипы при получении фокуса поля');
+		$('tooltip').remove();
+	});*/
+	/*$(document).on('click, change', function(){
+		console.log('удаляем тултипы и красную обводку');
+		$('.tooltip').removeClass('tooltip');
+		$('input, textarea').removeClass('.error');
+	});*/
 
 }); // - > ready_end;
 
@@ -45,7 +52,7 @@ var Popups = (function(){
 		var popups = $('.popup');
 		function _close(){
 			popups.hide();
-			condole.log('скрываем алерты');
+			console.log('скрываем алерты');
 		}
 		return {
 			init: function(){
@@ -86,8 +93,8 @@ function validateThis(form){
 			console.log('Проверяем форму');
 			var projectName     = form.find("#project-name"),
 				projectURL      = form.find("#project-url"),
-				mailType        = form.find("[data-validation='email']"),
-				fileType        = form.find("[data-validation='file']"),
+				mailName        = form.find("#contacts-mail"),
+				fileLoad        = form.find("#filename"),
 				projectDesc     = form.find("#project-description"),
 				contactsName    = form.find("#contacts-name"),
 				contactsMessage = form.find("#contacts-message"),
@@ -115,12 +122,18 @@ function validateThis(form){
 					var $this		= $(this),
 						notEmptyVal = !!$this.val(),
 						error		= 'введите название';
-						formGroup = projectName.parents('.form-group');
+						
 
 					if(notEmptyVal){
 						isValid = true;
-						formGroup.removeClass('error');
-						$this.tooltip('hide');
+						projectName.removeClass('error');
+						console.log('удаляем красную обводку');
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						})
+						
+
 						
 							
 
@@ -142,6 +155,11 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						})
+						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -152,13 +170,18 @@ function validateThis(form){
 					}
 				});
 
-				fileType.each(function(){
+				fileLoad.each(function(){
 					var $this		= $(this),
 						notEmptyVal = !!$this.val(),
 						error		= 'добавьте картинку';
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						})
+						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -176,6 +199,11 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						});
+						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -193,6 +221,11 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						});
+						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -210,6 +243,11 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем не работает
+						});
+						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -227,6 +265,11 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						});
+						//$this.tooltip('hide');
 
 					}else{
 						$this.addClass('error')
@@ -245,6 +288,11 @@ function validateThis(form){
 
 					if(notEmptyVal){
 						isValid = true;
+						$this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						});
+						//$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
@@ -255,17 +303,23 @@ function validateThis(form){
 					}
 				});
 
-				mailType.each(function(){
-					var $this		= $(this),
-						regExp		= /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/,
+				mailName.each(function(){
+					var $this	= $(this),
+						regExp	= /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/,
 						isMail	= regExp.test($this.val());
+						error   = 'Вы не ввели email';
 
 					if(isMail){
 						 isValid = true;
+						 $this.on('keydown, change', function(){
+							console.log('удаляем тултипы с этого поля при нажатии клавиш клавиатуры');
+							$('.tooltip').remove();//пробуем
+						});
+						 //$this.tooltip('hide');
 					}else{
 						$this.addClass('error')
 						.tooltip({
-							content : 'Вы не ввели email',
+							content : error,
 							position : 'right'
 						});
 						isValid = false;
@@ -274,7 +328,7 @@ function validateThis(form){
 
 			
 			return isValid;/////////2306
-		}
+		};
 
 
 

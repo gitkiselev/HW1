@@ -8,6 +8,7 @@ $(function (){
 	$('.popup-close').click(function (){
 		$('.modal-window').css('display','none');
 		$('.popup-body').css('display','none');
+		$('.error').removeClass('.error');
 		
 
 	});
