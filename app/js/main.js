@@ -23,6 +23,7 @@ $(function (){
 		$('.tooltip').remove();
 		$('.error').removeClass('error');
 	});
+	
     
 });
 

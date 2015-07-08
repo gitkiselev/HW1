@@ -81,7 +81,7 @@
 .tooltip {
   display: inline-block;
   position: absolute;
-  opacity: 0;
+  opacity: 1;
   -webkit-transition: opacity .3s;
   -moz-transition: opacity .3s;
   -ms-transition: opacity .3s;

@@ -1,142 +1,14 @@
-$(document).ready(function(){
+// Модуль валидации
+var validation = (function (){
 
-	if ($('.popup').length) {
-		Popups.init();
-	}
-
-	$('form').on('submit', function(e){
-		e.preventDefault();
-		console.log('отмена действия по-умолчанию');
-
-		var
-			$this = $(this);
-
-		if (validateThis($this)) {
-
-			postFormData($this, function(data){
-				var
-					reqPopup = data.status ? '#success' : '#error';
-
-				Popups.open(reqPopup);
-			});
-		}
-	});
-	$('form').on('reset', function(){//очистка формы по клавише "reset"
-		console.log('Очистка формы от красной обводки и тултипов');
-		$('.tooltip').remove();//пробуем, заработало
-		$('input, textarea').removeClass('error');
-		
-	});
-}); // - > ready_end;	
-	
-	$('form').on('keydown', function(e){  //вешаем обработчик на форму
-
-		var target = e.target;
-		if($(target).hasClass('error')) { // при нажатии клавиши убераем класс у активного элемента
-			$(target).removeClass('error');
-			$(target).next().remove();
-			
-		}
-	});
-
-	// $('#project-name').on('change keydown', function(){
-	// 						console.log('удаляются почему-то все');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	// $('#projectURL').on(' change keydown', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	// $('#fileLoad').on('keydown change', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	// $('#contactsName').on('keydown change', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	// $('#contactsMessage').on('keydown change', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем не работает
-	// 						$('.error').remove();
-	// 					});
-	// $('#nameUser').on('keydown change', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	// $('#passUser').on('keydown change', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	// $('#mailName').on('keydown change', function(){
-	// 						console.log('удаляем');
-	// 						$('.tooltip').remove();//пробуем
-	// 					});
-	/*$('input, textarea').focus(function(){//здесь все работает
-		console.log('поле получило фокус');
-		//$('input, textarea').removeClass('tooltip');
-		$(this).removeClass('error');//работает, но нужно по-другому
-	});
-	/*$('input, textarea').on('change keydown', function(){
-		console.log('удаляем класс tooltip');
-		$('.tooltip').remove();//но снимает все тултипы тут понятно почему
-	});*/
-	/*$('input, textarea').on('focus, change', function(){
-		console.log('удаляем тултипы при получении фокуса поля');
-		$('tooltip').remove();
-	});*/
-	/*$(document).on('click, change', function(){
-		console.log('удаляем тултипы и красную обводку');
-		$('.tooltip').removeClass('tooltip');
-		$('input, textarea').removeClass('.error');
-	});*/
-
-
-
-var Popups = (function(){
-		var popups = $('.popup');
-		function _close(){
-			popups.hide();
-			console.log('скрываем алерты');
-		}
-		return {
-			init: function(){
-				$('.popup__close, .popup__overlay').on('click', function(e){
-					e.preventDefault();
-
-					_close();
-				});
+	var init = function(){
+				console.log('Инициализация модуля validation');
+				_setUpListners();
 			},
-			open: function(id){
-				var reqPopup = popups.filter(id);
+			validateForm = function (form) { // Проверяет, чтобы все поля формы были не пустыми. Если пустые - вызывает тултипы
+	      console.log('Проверяем форму');
 
-				_close();
-				reqPopup.fadeIn(300);
-			}
-		}
-}());//Popups end
-
-function postFormData(form, successCallback){
-	var
-		host       = form.attr('action'),
-		reqFields  = form.find('id'),
-		dataObject = {};
-	if (!host){
-		console.log('Set action attribute to your form');
-	}
-	reqFields.each(function(){
-		var
-			$this = $(this),
-			value = $this.val(),
-			name  = $this.attr('name');
-		dataObject[name] = value;	
-	});
-	$.post(host, dataObject, successCallback);	
-}/// -> postformdata END
-
-function validateThis(form){
-	console.log('Проверяем форму');
-		var projectName     = form.find("#project-name"),
+	      	var projectName = form.find("#project-name"),
 			projectURL      = form.find("#project-url"),
 			mailName        = form.find("#contacts-mail"),
 			fileLoad        = form.find("#filename"),
@@ -147,32 +19,28 @@ function validateThis(form){
 			passUser        = form.find("#password"),
 			isValid         = true;
 
-				projectName.each(function(e){
+				projectName.each(function(){
 					var $this		= $(this),
 						notEmptyVal = !!$this.val(),
 						error		= 'введите название';
 						
 
 					if(notEmptyVal){
+						console.log('поле не пустое');
 						isValid = true;
-						//projectName.removeClass('error');
-						//console.log('удаляем красную обводку');
-						
-						
+						$this.removeClass('error');
+						$this.tooltip('hide');
 
 						
-							
-
 					}else{
-						
 						$this.addClass('error')
 						$this.tooltip({
 							content : error,
 							position : 'left'
-						}, $this[0]); //костыль отлавливаем элемент для которого вызываем тултип
+						});
 						isValid = false;
-						
 					}
+					return isValid;
 				});
 
 
@@ -182,6 +50,7 @@ function validateThis(form){
 						error		= 'ссылка на проект';
 
 					if(notEmptyVal){
+						console.log('поле не пустое');
 						isValid = true;
 
 						
@@ -190,7 +59,7 @@ function validateThis(form){
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -201,6 +70,7 @@ function validateThis(form){
 						error		= 'добавьте картинку';
 
 					if(notEmptyVal){
+						console.log('поле не пустое');
 						isValid = true;
 						
 						//$this.tooltip('hide');
@@ -209,7 +79,7 @@ function validateThis(form){
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -228,7 +98,7 @@ function validateThis(form){
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -247,7 +117,7 @@ function validateThis(form){
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -260,13 +130,13 @@ function validateThis(form){
 					if(notEmptyVal){
 						isValid = true;
 						
-						//$this.tooltip('hide');
+						
 					}else{
 						$this.addClass('error')
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -279,14 +149,14 @@ function validateThis(form){
 					if(notEmptyVal){
 						isValid = true;
 						
-						//$this.tooltip('hide');
+						
 
 					}else{
 						$this.addClass('error')
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -299,13 +169,13 @@ function validateThis(form){
 					if(notEmptyVal){
 						isValid = true;
 						
-						//$this.tooltip('hide');
+						
 					}else{
 						$this.addClass('error')
 						.tooltip({
 							content : error,
 							position : 'left'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
@@ -325,22 +195,41 @@ function validateThis(form){
 						.tooltip({
 							content : error,
 							position : 'right'
-						},$this[0]);
+						});
 						isValid = false;
 					}
 				});
 
 			
 			return isValid;/////////2306
-}
 
+	      }, // конец формы валидации
 
+	      
+        
+		_setUpListners = function () { // Прослушивает все события 
+	      $('form').on('keydown', '.error', _removeError); // удаляем красную обводку у элементов форм
+	      $('form').on('reset', _clearForm); // при сбросе формы удаляем также: тултипы, обводку, сообщение от сервера
+	    },
+    	_removeError = function() { // Убирает красную обводку у элементов форм
+	      console.log('Красная обводка у элементов форм удалена');
 
-$.fn.tooltip = function(options, elem) {
-	options = {
+	      $(this).removeClass('error');
+	    },	    
+	    _clearForm = function(form) { // Очищает форму 
+	      console.log('Очищаем форму');
+
+	      var form = $(this);
+	      form.find('.input, .textarea').trigger('hideTooltip'); // удаляем тултипы
+	      form.find('.error').removeClass('error'); // удаляем красную подсветку
+	      form.find('#error, #success').text('').hide(); // очищаем и прячем сообщения с сервера
+	    },	     
+	    //вставить функцию создания тултипа
+	    $.fn.tooltip = function(options) {
+		options = {
 		position	: options.position,
 		content		: options.content
-	};
+		},
 	
 	//Делаем разметку для тултипов
 	var
@@ -350,15 +239,14 @@ $.fn.tooltip = function(options, elem) {
 
 	var $this = $(this),
 		body = $('body');
-		
+
 	$this
 		.addClass('tooltipstered')
 		.attr('data-tooltip-position', options.position);
-		//Добавляем разметку  к элементу
-	$(elem).parent().append(markup); //
-	
+		//Добавляем разметку в body
+	body.append(markup);
 
-	_positioning(elem, $(elem).find('.tooltip').last(), options.position);
+	_positioning($this, body.find('.tooltip').last(), options.position);
 
 	//Чтобы тултипы пропадали по клику
 	/*$(document).on('click', function(){
@@ -368,7 +256,6 @@ $.fn.tooltip = function(options, elem) {
 	
 	//переотрисовка тултипов
 	$(window).on('resize', function(){
-		console.log('произведен ресайз окна');
 
 		var
 			tooltips = $('.tooltip');
@@ -391,11 +278,7 @@ $.fn.tooltip = function(options, elem) {
 	//Функция для позиционирования тултипа
 	function _positioning(elem, tooltip, position) {
 		//измеряем элемент
-		var elem = $(elem);
-
-	
 		var
-			
 			elemWidth   = elem.outerWidth(true),
 			elemHeight  = elem.outerHeight(true),
 			topEdge     = elem.offset().top,
@@ -441,67 +324,17 @@ $.fn.tooltip = function(options, elem) {
 
 		tooltip
 			.offset(positions)
-			.css('opacity', '9999');
+			.css('opacity', '1');
 	}
 
-};	
+};	//конец создания тултипа
+	    //конец функции создания тултипа
 
+	return {
+		init: init,
+		validateForm: validateForm
+	};
 
+})();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-	
-
-
-	
-
-		
-		
-
-		
-	
-
-
-
+validation.init();

@@ -206,7 +206,7 @@ font-size: 13px;}
   
   display: inline-block;
   position: absolute;
-  opacity: 0;
+  opacity: 9999;
   -webkit-transition: opacity .3s;
   -moz-transition: opacity .3s;
   -ms-transition: opacity .3s;

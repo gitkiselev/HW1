@@ -52,7 +52,7 @@ $.fn.tooltip = function (options) {
 		var
 			elemWidth	= elem.outerWidth(true),
 			elemHeight	= elem.outerHeight(true),
-			topEdge		= elem.offset().top,
+			topEdge     = elem.offset().top,
 			bottomEdge	= topEdge + elemHeight,
 			leftEdge	= elem.offset().left,
 			rightEdge	= leftEdge + elemWidth;

@@ -4,4 +4,4 @@
 3. Установить gulp npm install --save-dev gulp
 4. Зайти на сайт https://github.com/
 5. Перейти на страницу проекта https://github.com/gitkiselev/HW1
-6. Нажать кнопк download.zip
+6. Нажать кнопку download.zip
