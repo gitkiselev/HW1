@@ -475,7 +475,17 @@
 	background-color: none;
 	border-color: #3c763d;
 }
-
+/* _____________ тултипы _________ */
+.qtip-mystyle{
+	background-color: #f97e76;
+	border-color: #f97e76;
+	font-family: 'fira_sansbook';
+	color: #ffffff;
+	font-size: 13px;
+	left: 0;
+	
+}
+/* _____________ // тултипы _________ */
 
 .fileupload{ /* хак, взятый из html5boilerplate */
 border: 0;

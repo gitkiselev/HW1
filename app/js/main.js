@@ -1,11 +1,11 @@
 /*Кроссбраузерные события*/
 $(function (){
-	$('.projects-item-add').click(function (){
+	/*$('.projects-item-add').click(function (){
 		console.log('открываем модальное окно с подложкой');
 		$('.modal-window').css('display','block');
 		$('.popup-body').css('display', 'block');
 
-	});
+	});*/
 	$('.popup-close').click(function (){
 		console.log('закрываем окно, удаляем тултипы и красную обводку');
 		$('.modal-window').css('display','none');

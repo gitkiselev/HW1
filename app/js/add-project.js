@@ -8,13 +8,21 @@ var addProject = (function (){
 			_setUpListners = function (){
 				$('.projects-item-add').on('click', _showModal); // открыть модальное окно
 				$('#add-new-project').on('submit', _addProject); // добавление проекта
+				$('.popup-close').on('click', _closeModal);//закрыть модальное окно
 			},
 			_showModal = function (){
       			console.log('Вызов модального окна с подложкой');
 	      		
 				$('.modal-window').css('display','block');
 				$('.popup-body').css('display', 'block');
-			},	
+			},
+			_closeModal = function(){
+				console.log('закрываем модальное окно, удаляем тултипы и красную обводку');
+				$('.modal-window').css('display','none');
+				$('.popup-body').css('display','none');
+				$('.qtip').remove();
+				$('.has-error').removeClass('has-error');
+			}	
 	
     	
     	_addProject = function (ev){
