@@ -102,10 +102,10 @@
 
 /* Default tooltip style */
 .qtip-default{
-	border: 1px solid #F1D031;
+	border: 4px solid transparent;
 
-	background-color: #FFFFA3;
-	color: #555;
+	background-color: #fa8075;
+	color: #fff;
 }
 
 	.qtip-default .qtip-titlebar{
@@ -614,4 +614,12 @@
 
 .qtipmodal-ie6fix{
 	position: absolute !important;
+}
+.qtip-tip {
+	border: 0 !important;
+	width: 12px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: -10px;
+	background-color: #fa8075;
 }

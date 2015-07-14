@@ -10,19 +10,19 @@ $(function (){
 		console.log('закрываем окно, удаляем тултипы и красную обводку');
 		$('.modal-window').css('display','none');
 		$('.popup-body').css('display','none');
-		$('.tooltip').remove();
-		$('.error').removeClass('.error');
+		$('.qtip').remove();
+		$('.has-error').removeClass('has-error');
 		
 
 	});
 	$('.popup__close').click(function (){
 		$('.popup').css('display', 'none');
 	});
-	$('.popup-close').click(function(){
+	/*$('.popup-close').click(function(){
 		console.log('закрываем окно, удаляем тултипы и красную обводку');
 		$('.tooltip').remove();
 		$('.error').removeClass('error');
-	});
+	});*/
 	
     
 });

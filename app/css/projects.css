@@ -335,11 +335,12 @@
 	background-color: #f2cccd;
 	opacity: .5;
 }
-/* --------- tooltip --------- */
+/* --------- tooltip --------- 
 .tooltip {
   display: inline-block;
   position: absolute;
   opacity: 1;
+  z-index: 11000;
   -webkit-transition: opacity .3s;
   -moz-transition: opacity .3s;
   -ms-transition: opacity .3s;
@@ -466,3 +467,25 @@
   top: -18px;
   right: -18px; }
 
+.has-error{
+	background-color: #fad2d1 !important;
+	border-color: #f97e76 !important;
+}
+.has-success{
+	background-color: none;
+	border-color: #3c763d;
+}
+
+
+.fileupload{ /* хак, взятый из html5boilerplate */
+border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* _____________ // file upload end _________ */

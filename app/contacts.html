@@ -6,8 +6,8 @@
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/contacts.css">
-	<!--<link rel="stylesheet" href="css/projects.css">-->
 	<link rel="stylesheet" href="fonts/fira/fira.css">
+	<link rel="stylesheet" href="css/qtip2.css">
 	<link rel="icon" type="image/vnd.microsoft.icon" href="img/favicon.ico">
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/modernizr.custom.13189.js"></script>
@@ -70,22 +70,22 @@
 						</div>
 						<div class="infobox-body">
 							<div class="infobox-body-wrapper">
-								<form action="mail.php" method="post" id="contacts-form" class="form form-write" id="form">
+								<form action="" method="post" class="form form-write" id="contact-me">
 									
 									
 									<div class="form-wrapper clearfix">
 										<div class="form-group left-side">
 											<label for="contacts-name" class="label">Имя</label>
-											<input id="contacts-name" type="text" name="name" data-validation="text" placeholder="Как к Вам обращаться" class="input">
+											<input id="contacts-name" type="text" name="name" data-validation="text" placeholder="Как к Вам обращаться" class="input" qtip-content="Вы не ввели имя">
 										</div>
 										<div class="form-group right-side">
 											<label for="contacts-mail" class="label">Email</label>
-											<input id ="contacts-mail" type="text" name="e-mail" data-validation="email" placeholder="Куда мне писать" class="input">
+											<input id ="contacts-mail" type="text" name="e-mail" data-validation="email" placeholder="Куда мне писать" class="input" qtip-content="Вы не ввели email" qtip-position="right">
 										</div>
 									</div>	
 										<div class="form-group">
 											<label for="contacts-message" class="label">Сообщение</label>
-											<textarea id="contacts-message" name="message" data-validation="text" rows="3" class="textarea"></textarea>
+											<textarea id="contacts-message" name="message" data-validation="text" rows="3" class="textarea" qtip-content="Ваш вопрос"></textarea>
 										</div>
 										
 											<div class="captcha">
@@ -118,8 +118,13 @@
 		</div>
 	</footer>
 	
- <!--<script src="js/contacts-form.js"></script>-->
- <script src="js/main2.js"></script>
- <!--<script src="js/valid.js"></script>-->
+ <script src="bower/jquery-placeholder/jquery.placeholder.js"></script>
+ <script src="js/qtip2.js"></script>
+ <script src="js/main.js"></script>
+ <script src="js/validation.js"></script>
+ <script src="js/contact-me.js"></script>
+ <script src="js/placeholder.js"></script>
+ 
+ 
 </body>
 </html>
