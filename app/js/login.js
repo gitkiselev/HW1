@@ -2,14 +2,14 @@
 var loginModule = (function (){
 
 	var init = function(){
-				console.log('Инициализация модуля loginModule');
+				//console.log('Инициализация модуля loginModule');
 				_setUpListners();
 			},
 			_setUpListners = function (){
 				$('#login').on('submit', _submitForm); // отправка формы
 			},
 			_submitForm = function (ev) {
-	      console.log('Работаем с формой');
+	      //console.log('Работаем с формой');
 
 	      ev.preventDefault();
 

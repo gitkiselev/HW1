@@ -1,7 +1,8 @@
 // Модуль валидации
 var validation = (function (){
-
+	
 	var init = function(){
+		if (typeof console == "undefined" || typeof console.log == "undefined") var console = { log: function() {} }; 
 				console.log('Инициализация модуля validation');
 				_setUpListners();
 			},
@@ -31,11 +32,13 @@ var validation = (function (){
 	      $('form').on('reset', _clearForm); // при сбросе формы удаляем также: тултипы, обводку, сообщение от сервера
 	    },
     	_removeError = function() { // Убирает красную обводку у элементов форм
+    		if (typeof console == "undefined" || typeof console.log == "undefined") var console = { log: function() {} }; 
 	      console.log('Красная обводка у элементов форм удалена');
 
 	      $(this).removeClass('has-error');
 	    },	    
 	    _clearForm = function(form) { // Очищает форму 
+	    	if (typeof console == "undefined" || typeof console.log == "undefined") var console = { log: function() {} }; 
 	      console.log('Очищаем форму');
 
 	      var form = $(this);
@@ -44,6 +47,7 @@ var validation = (function (){
 	      form.find('.error-mes, success-mes').text('').hide(); // очищаем и прячем сообщения с сервера
 	    },	     
 	    _createQtip = function (element, position) { // Создаёт тултипы
+	    	if (typeof console == "undefined" || typeof console.log == "undefined") var console = { log: function() {} }; 
 	      console.log('Создаем тултип');
 
 	      // позиция тултипа
